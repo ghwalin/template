@@ -1,0 +1,26 @@
+name: GitHub Classroom Workflow
+
+on: workflow_dispatch
+
+env:
+  COPY-ISSUES: "true"
+  GRADING: "true"
+  MOODLE: "true"
+  WORKFLOWS: BZZ-Commons/workflows
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  setup:
+    env:
+      SOURCE_REPO: BZZ-Commons/copy-issues
+    if: ${{ contains(github.actor, 'classroom') }}
+      - uses: BZZ-Commons/workflows/.github/workflows/setup.yml@main
+
+  grading:
+    if: ${{ !contains(github.actor, 'classroom') }}
+      - uses: BZZ-Commons/workflows/.github/workflows/setup.yml@main
+
