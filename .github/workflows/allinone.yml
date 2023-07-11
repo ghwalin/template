@@ -18,6 +18,8 @@ jobs:
   setup:
     if: ${{ contains(github.actor, 'classroom') }}
     uses: BZZ-Commons/workflows/.github/workflows/setup.yml@main
+    with:
+      sourc_repo: ${{ env.SOURCE_REPO }}
 
   grading:
     if: ${{ !contains(github.actor, 'classroom') }}
