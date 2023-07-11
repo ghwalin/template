@@ -7,6 +7,7 @@ env:
   GRADING: "true"
   MOODLE: "true"
   WORKFLOWS: BZZ-Commons/workflows
+  SOURCE_REPO: BZZ-Commons/copy-issues
 
 permissions:
   checks: write
@@ -15,12 +16,10 @@ permissions:
 
 jobs:
   setup:
-    env:
-      SOURCE_REPO: BZZ-Commons/copy-issues
     if: ${{ contains(github.actor, 'classroom') }}
-      - uses: BZZ-Commons/workflows/.github/workflows/setup.yml@main
+    uses: BZZ-Commons/workflows/.github/workflows/setup.yml@main
 
   grading:
     if: ${{ !contains(github.actor, 'classroom') }}
-      - uses: BZZ-Commons/workflows/.github/workflows/setup.yml@main
+    uses: BZZ-Commons/workflows/.github/workflows/setup.yml@main
 
