@@ -3,6 +3,7 @@ name: GitHub Classroom Workflow
 on: workflow_dispatch
 
 env:
+  GHSECRET: ${{ secrets.GITHUB_TOKEN }}
   COPY-ISSUES: "true"
   GRADING: "true"
   MOODLE: "true"
