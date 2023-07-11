@@ -31,4 +31,5 @@ jobs:
       SOURCE_REPO: BZZ-Commons/copy-issues
       TARGET_REPO: ${{ github.repository }}
       ADD_LABELS: "false"
+    secrets: inherit
 
